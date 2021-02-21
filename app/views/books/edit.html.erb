@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+
+       <% if @book.errors.any? %>
+      <h2><%= pluralize(@book.errors.count, "error") %> prohibited this book from being saved:</h2>
+
+        <% @book.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+          <% end %>
+
+
+<h1>Editing Book</h1>
+<!-- form_with部分 -->
+<%= form_with model:@book, local: true do |f| %>
+  <label>Title</lavel><br>
+  <%= f.text_field :title %><br>
+  <br>
+  <lavel>Opinion</label><br>
+  <%= f.text_area :body %><br>
+  <br>
+  <%= f.submit 'Update Book' %><br>
+<% end %>
+<br>
+  <%= link_to 'Show', book_path(@book) %>
+  |
+  <%= link_to 'Back', books_path %>
+
+  </div>
+</div>
+      </div>
+
